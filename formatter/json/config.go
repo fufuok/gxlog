@@ -48,3 +48,12 @@ func (config *Config) setDefaults() {
 		config.MinBufSize = 384
 	}
 }
+
+func NewConfig() Config {
+	return Config{
+		OmitEmpty: Aux,
+		FileSegs:  1,
+		PkgSegs:   1,
+		FuncSegs:  1,
+	}
+}

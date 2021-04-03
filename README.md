@@ -1,3 +1,92 @@
+# forked from [gxlog/gxlog](https://github.com/gxlog/gxlog)
+
+## 改动
+
+1. `info` 级别的日志颜色默认改为 `Blue`
+2. `json` 日志格式调整:
+   1. 字段名修改为小写, `time`, `level` 等
+   2. 日期修改为 `RFC3399`
+   3. 日志级别字段由数字改为短字符, `D`, `W` 等, 表示 `debug`, `warn`
+   4. `Aux` 扩展字段扁平化, `contexts` 默认值改为 `[]`
+3. 增加 `text.NewConfig` 和 `json.NewConfig` 方法, 更合适的默认配置
+
+## 使用
+
+1. `go.mod`
+
+   ```
+   module ff.my.project
+   
+   go 1.16
+   
+   require github.com/gxlog/gxlog v0.7.0
+   
+   replace github.com/gxlog/gxlog v0.7.0 => github.com/fufuok/gxlog v1.0.0
+   ```
+
+2. `go mod tidy`
+
+## 示例
+
+- [_examples/default/default.go](_examples/default/default.go) *基础用法示例*
+
+- ```shell
+  # cat _examples/default/demo.log
+  {"time":"2021-04-03T23:58:06+08:00","level":"I","file":"default.go","line":23,"pkg":"main","func":"testJSONFormatter","msg":"json with mark","marked":true}
+  {"time":"2021-04-03T23:58:06+08:00","level":"T","file":"default.go","line":25,"pkg":"main","func":"testJSONFormatter","msg":"json with context","prefix":"prefix-123","contexts":[{"ah":"ha"},{"int":"123"},{"bool":"false"}]}
+  {"time":"2021-04-03T23:58:06+08:00","level":"T","file":"default.go","line":26,"pkg":"main","func":"testJSONFormatter","msg":"test Timing (cost: 181.4µs)"}
+  23:58:06.821 T default.go:33 main.testTextFormatter [] test Trace
+  23:58:06.821 T default.go:34 main.testTextFormatter [] test Tracef
+  23:58:06.821 D default.go:35 main.testTextFormatter [] test Debug
+  23:58:06.821 D default.go:36 main.testTextFormatter [] test Debugf
+  23:58:06.821 D default.go:37 main.testTextFormatter prefix-123[(ah: ha)] test Debug with aux
+  23:58:06.821 I default.go:38 main.testTextFormatter [] test Info
+  23:58:06.821 I default.go:39 main.testTextFormatter [] test Infof
+  23:58:06.821 W default.go:40 main.testTextFormatter [] test Warn
+  23:58:06.821 W default.go:41 main.testTextFormatter [] test Warnf
+  23:58:06.821 E default.go:42 main.testTextFormatter [] test Error
+  23:58:06.821 E default.go:43 main.testTextFormatter [] test Errorf
+  23:58:06.821 E default.go:44 main.testTextFormatter [] an error
+  23:58:06.821 F default.go:46 main.testTextFormatter [] test Fatal
+  goroutine 1 [running]:
+  runtime/debug.Stack(0xc000128000, 0x1, 0x6)
+  	/usr/local/go/src/runtime/debug/stack.go:24 +0x9f
+  github.com/gxlog/gxlog/logger.(*Logger).Log(0xc000128000, 0x1, 0x6, 0xc000141d78, 0x1, 0x1)
+  	/mnt/f/Go/gxlog/logger/logger.go:149 +0xcc
+  github.com/gxlog/gxlog/logger.(*Logger).Fatal(...)
+  	/mnt/f/Go/gxlog/logger/logger.go:106
+  main.testTextFormatter()
+  	/mnt/f/Go/gxlog/_examples/default/default.go:46 +0x8a5
+  main.main()
+  	/mnt/f/Go/gxlog/_examples/default/default.go:15 +0x2a
+  23:58:06.821 F default.go:47 main.testTextFormatter [] test Fatalf
+  goroutine 1 [running]:
+  runtime/debug.Stack(0x0, 0x503220, 0x2)
+  	/usr/local/go/src/runtime/debug/stack.go:24 +0x9f
+  github.com/gxlog/gxlog/logger.(*Logger).Logf(0xc000128000, 0x1, 0x6, 0xc0000144d0, 0x5, 0xc000141d68, 0x1, 0x1)
+  	/mnt/f/Go/gxlog/logger/logger.go:168 +0x153
+  github.com/gxlog/gxlog/logger.(*Logger).Fatalf(...)
+  	/mnt/f/Go/gxlog/logger/logger.go:111
+  main.testTextFormatter()
+  	/mnt/f/Go/gxlog/_examples/default/default.go:47 +0x925
+  main.main()
+  	/mnt/f/Go/gxlog/_examples/default/default.go:15 +0x2a
+  23:58:06.821 T default.go:48 main.testTextFormatter [] test Timingf (cost: 195.6µs)
+  ```
+
+- [_examples/project_demo/project_demo.go](_examples/project_demo/project_demo.go) *生产中常用配置示例*
+
+- ```shell
+  ___LOG_CACHE: {"time":"2021-04-03T23:53:57+08:00","level":"I","file":"project_demo.go","line":109,"pkg":"main","func":"main","msg":">>>test limit: 1"}
+  
+  # cat _examples/project_demo/20210403/app-ff.235357.257876.log
+  23:53:57.257 W project_demo.go:103 main.main [] test WARN
+  23:53:57.258 E project_demo.go:104 main.main [(k1: v1.string) (k2: 1.05)] test ERROR with Field
+  23:53:57.258 W project_demo.go:106 main.main ***FUFU***[] test PREFIX AND MARK
+  ```
+
+- ![](./_examples/project_demo/debug=true.png)
+
 # gxlog #
 
 Gxlog is short for **G**o e**X**tensible **LOG**ger. It is concise, functional,

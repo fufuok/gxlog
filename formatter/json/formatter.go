@@ -10,6 +10,15 @@ import (
 	"github.com/gxlog/gxlog/iface"
 )
 
+var levelDescChar = []string{
+	iface.Trace: "T",
+	iface.Debug: "D",
+	iface.Info:  "I",
+	iface.Warn:  "W",
+	iface.Error: "E",
+	iface.Fatal: "F",
+}
+
 // A Formatter implements the interface iface.Formatter.
 //
 // All methods of a Formatter are concurrency safe.
@@ -38,35 +47,35 @@ func (formatter *Formatter) Format(record *iface.Record) []byte {
 	sep := ""
 	buf = append(buf, "{"...)
 	if formatter.config.Omit&Time == 0 {
-		buf = formatStrField(buf, sep, "Time",
-			record.Time.Format(time.RFC3339Nano), false)
+		buf = formatStrField(buf, sep, "time",
+			record.Time.Format(time.RFC3339), false)
 		sep = ","
 	}
 	if formatter.config.Omit&Level == 0 {
-		buf = formatIntField(buf, sep, "Level", int(record.Level))
+		buf = formatStrField(buf, sep, "level", levelDescChar[record.Level], false)
 		sep = ","
 	}
 	if formatter.config.Omit&File == 0 {
 		file := util.LastSegments(record.File, formatter.config.FileSegs, '/')
-		buf = formatStrField(buf, sep, "File", file, true)
+		buf = formatStrField(buf, sep, "file", file, true)
 		sep = ","
 	}
 	if formatter.config.Omit&Line == 0 {
-		buf = formatIntField(buf, sep, "Line", record.Line)
+		buf = formatIntField(buf, sep, "line", record.Line)
 		sep = ","
 	}
 	if formatter.config.Omit&Pkg == 0 {
 		pkg := util.LastSegments(record.Pkg, formatter.config.PkgSegs, '/')
-		buf = formatStrField(buf, sep, "Pkg", pkg, false)
+		buf = formatStrField(buf, sep, "pkg", pkg, false)
 		sep = ","
 	}
 	if formatter.config.Omit&Func == 0 {
 		fn := util.LastSegments(record.Func, formatter.config.FuncSegs, '.')
-		buf = formatStrField(buf, sep, "Func", fn, false)
+		buf = formatStrField(buf, sep, "func", fn, false)
 		sep = ","
 	}
 	if formatter.config.Omit&Msg == 0 {
-		buf = formatStrField(buf, sep, "Msg", record.Msg, true)
+		buf = formatStrField(buf, sep, "msg", record.Msg, true)
 		sep = ","
 	}
 	buf = formatter.formatAux(buf, sep, &record.Aux)
@@ -114,10 +123,10 @@ func (formatter *Formatter) formatAux(buf []byte, sep string,
 	}
 	buf = append(buf, sep...)
 	sep = ""
-	buf = append(buf, `"Aux":{`...)
+	// buf = append(buf, `"Aux":{`...)
 	if formatter.config.Omit&Prefix == 0 &&
 		!(formatter.config.OmitEmpty&Prefix != 0 && aux.Prefix == "") {
-		buf = formatStrField(buf, sep, "Prefix", aux.Prefix, true)
+		buf = formatStrField(buf, sep, "prefix", aux.Prefix, true)
 		sep = ","
 	}
 	if formatter.config.Omit&Context == 0 &&
@@ -127,23 +136,25 @@ func (formatter *Formatter) formatAux(buf []byte, sep string,
 	}
 	if formatter.config.Omit&Mark == 0 &&
 		!(formatter.config.OmitEmpty&Mark != 0 && !aux.Marked) {
-		buf = formatBoolField(buf, sep, "Marked", aux.Marked)
+		buf = formatBoolField(buf, sep, "marked", aux.Marked)
 	}
-	return append(buf, "}"...)
+	// return append(buf, "}"...)
+	return buf
 }
 
 func formatContexts(buf []byte, sep string, contexts []iface.Context) []byte {
 	buf = append(buf, sep...)
 	sep = ""
 	if len(contexts) == 0 {
-		return append(buf, `"Contexts":null`...)
+		return append(buf, `"contexts":[]`...)
 	}
-	buf = append(buf, `"Contexts":[`...)
+	buf = append(buf, `"contexts":[`...)
 	for _, context := range contexts {
 		buf = append(buf, sep...)
 		buf = append(buf, "{"...)
-		buf = formatStrField(buf, "", "Key", context.Key, true)
-		buf = formatStrField(buf, ",", "Value", context.Value, true)
+		// buf = formatStrField(buf, "", "Key", context.Key, true)
+		// buf = formatStrField(buf, ",", "Value", context.Value, true)
+		buf = formatStrField(buf, "", context.Key, context.Value, true)
 		buf = append(buf, "}"...)
 		sep = ","
 	}

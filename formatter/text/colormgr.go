@@ -48,7 +48,7 @@ func newColorMgr() *colorMgr {
 	colors := []Color{
 		iface.Trace: Green,
 		iface.Debug: Green,
-		iface.Info:  Green,
+		iface.Info:  Blue,
 		iface.Warn:  Yellow,
 		iface.Error: Red,
 		iface.Fatal: Red,

@@ -13,3 +13,6 @@
 
 # emacs
 .marked_files.el
+
+# other
+.idea

@@ -1,0 +1,4 @@
+[33m23:53:57.257 W project_demo.go:103 main.main [] test WARN
+[0m[31m23:53:57.258 E project_demo.go:104 main.main [(k1: v1.string) (k2: 1.05)] test ERROR with Field
+[0m[35m23:53:57.258 W project_demo.go:106 main.main ***FUFU***[] test PREFIX AND MARK
+[0m

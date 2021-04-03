@@ -1,0 +1,41 @@
+{"time":"2021-04-03T23:58:12+08:00","level":"I","file":"default.go","line":23,"pkg":"main","func":"testJSONFormatter","msg":"json with mark","marked":true}
+{"time":"2021-04-03T23:58:12+08:00","level":"T","file":"default.go","line":25,"pkg":"main","func":"testJSONFormatter","msg":"json with context","prefix":"prefix-123","contexts":[{"ah":"ha"},{"int":"123"},{"bool":"false"}]}
+{"time":"2021-04-03T23:58:12+08:00","level":"T","file":"default.go","line":26,"pkg":"main","func":"testJSONFormatter","msg":"test Timing (cost: 245.4µs)"}
+[32m23:58:12.828 T default.go:33 main.testTextFormatter [] test Trace
+[0m[32m23:58:12.828 T default.go:34 main.testTextFormatter [] test Tracef
+[0m[32m23:58:12.828 D default.go:35 main.testTextFormatter [] test Debug
+[0m[32m23:58:12.828 D default.go:36 main.testTextFormatter [] test Debugf
+[0m[35m23:58:12.828 D default.go:37 main.testTextFormatter prefix-123[(ah: ha)] test Debug with aux
+[0m[34m23:58:12.828 I default.go:38 main.testTextFormatter [] test Info
+[0m[34m23:58:12.828 I default.go:39 main.testTextFormatter [] test Infof
+[0m[33m23:58:12.828 W default.go:40 main.testTextFormatter [] test Warn
+[0m[33m23:58:12.828 W default.go:41 main.testTextFormatter [] test Warnf
+[0m[31m23:58:12.828 E default.go:42 main.testTextFormatter [] test Error
+[0m[31m23:58:12.828 E default.go:43 main.testTextFormatter [] test Errorf
+[0m[31m23:58:12.828 E default.go:44 main.testTextFormatter [] an error
+[0m[31m23:58:12.828 F default.go:46 main.testTextFormatter [] test Fatal
+goroutine 1 [running]:
+runtime/debug.Stack(0xc000128000, 0x1, 0x6)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0x9f
+github.com/gxlog/gxlog/logger.(*Logger).Log(0xc000128000, 0x1, 0x6, 0xc000141d78, 0x1, 0x1)
+	/mnt/f/Go/gxlog/logger/logger.go:149 +0xcc
+github.com/gxlog/gxlog/logger.(*Logger).Fatal(...)
+	/mnt/f/Go/gxlog/logger/logger.go:106
+main.testTextFormatter()
+	/mnt/f/Go/gxlog/_examples/default/default.go:46 +0x8a5
+main.main()
+	/mnt/f/Go/gxlog/_examples/default/default.go:15 +0x2a
+[0m[31m23:58:12.828 F default.go:47 main.testTextFormatter [] test Fatalf
+goroutine 1 [running]:
+runtime/debug.Stack(0x0, 0x503220, 0x2)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0x9f
+github.com/gxlog/gxlog/logger.(*Logger).Logf(0xc000128000, 0x1, 0x6, 0xc0000144d0, 0x5, 0xc000141d68, 0x1, 0x1)
+	/mnt/f/Go/gxlog/logger/logger.go:168 +0x153
+github.com/gxlog/gxlog/logger.(*Logger).Fatalf(...)
+	/mnt/f/Go/gxlog/logger/logger.go:111
+main.testTextFormatter()
+	/mnt/f/Go/gxlog/_examples/default/default.go:47 +0x925
+main.main()
+	/mnt/f/Go/gxlog/_examples/default/default.go:15 +0x2a
+[0m[32m23:58:12.828 T default.go:48 main.testTextFormatter [] test Timingf (cost: 166µs)
+[0m

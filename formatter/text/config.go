@@ -61,3 +61,11 @@ func (config *Config) setDefaults() {
 		config.MinBufSize = 256
 	}
 }
+
+func NewConfig() Config {
+	return Config{
+		Coloring: true,
+		Header: "{{time:time.ms}} {{level:char}} {{file:1}}:{{line}} " +
+			"{{pkg:1}}.{{func}} {{prefix}}[{{context}}] {{msg}}\n",
+	}
+}

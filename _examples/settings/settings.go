@@ -31,7 +31,7 @@ func testConfig() {
 		// or it may deadlock.
 		// Disable Prefix, StaticContext and Mark, then their value will always
 		// be the zero value of their type.
-		config.Disabled |= (logger.Prefix | logger.StaticContext | logger.Mark)
+		config.Disabled |= logger.Prefix | logger.StaticContext | logger.Mark
 		// Disable auto backtracking
 		config.TrackLevel = iface.Off
 		return config
