@@ -1,7 +1,7 @@
 package text
 
 import (
-	"github.com/gxlog/gxlog/iface"
+	"github.com/fufuok/gxlog/iface"
 )
 
 // All predefined headers here.

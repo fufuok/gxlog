@@ -1,7 +1,7 @@
 package logger
 
 import (
-	"github.com/gxlog/gxlog/iface"
+	"github.com/fufuok/gxlog/iface"
 )
 
 // The Flag defines the flag type of Logger.

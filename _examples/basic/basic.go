@@ -3,8 +3,8 @@ package main
 import (
 	"time"
 
-	"github.com/gxlog/gxlog"
-	"github.com/gxlog/gxlog/iface"
+	"github.com/fufuok/gxlog"
+	"github.com/fufuok/gxlog/iface"
 )
 
 // gxlog.Logger returns the default Logger.

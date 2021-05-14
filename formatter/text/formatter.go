@@ -6,7 +6,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/gxlog/gxlog/iface"
+	"github.com/fufuok/gxlog/iface"
 )
 
 var headerRegexp = regexp.MustCompile("{{([^:%]*?)(?::([^%]*?))?(%.*?)?}}")

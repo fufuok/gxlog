@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/gxlog/gxlog/writer"
+	"github.com/fufuok/gxlog/writer"
 )
 
 // The DateStyle defines the type of date format style for naming log files.

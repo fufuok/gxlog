@@ -1,3 +1,3 @@
-module github.com/gxlog/gxlog
+module github.com/fufuok/gxlog
 
-go 1.16
+go 1.15

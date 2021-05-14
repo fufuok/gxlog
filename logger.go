@@ -4,9 +4,9 @@ package gxlog
 import (
 	"os"
 
-	"github.com/gxlog/gxlog/formatter/text"
-	"github.com/gxlog/gxlog/logger"
-	"github.com/gxlog/gxlog/writer"
+	"github.com/fufuok/gxlog/formatter/text"
+	"github.com/fufuok/gxlog/logger"
+	"github.com/fufuok/gxlog/writer"
 )
 
 var (

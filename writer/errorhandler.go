@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/gxlog/gxlog/iface"
+	"github.com/fufuok/gxlog/iface"
 )
 
 const callDepthOffset = 6

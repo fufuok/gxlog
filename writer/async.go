@@ -1,7 +1,7 @@
 package writer
 
 import (
-	"github.com/gxlog/gxlog/iface"
+	"github.com/fufuok/gxlog/iface"
 )
 
 type logData struct {

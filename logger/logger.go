@@ -14,7 +14,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/gxlog/gxlog/iface"
+	"github.com/fufuok/gxlog/iface"
 )
 
 const callDepthOffset = 3

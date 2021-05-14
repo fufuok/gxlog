@@ -3,7 +3,7 @@ package writer
 import (
 	"io"
 
-	"github.com/gxlog/gxlog/iface"
+	"github.com/fufuok/gxlog/iface"
 )
 
 type Wrapper struct {

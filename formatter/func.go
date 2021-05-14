@@ -2,7 +2,7 @@
 package formatter
 
 import (
-	"github.com/gxlog/gxlog/iface"
+	"github.com/fufuok/gxlog/iface"
 )
 
 // The Func type is a function wrapper to the interface Formatter.

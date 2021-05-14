@@ -17,9 +17,9 @@
 goroutine 1 [running]:
 runtime/debug.Stack(0xc000128000, 0x1, 0x6)
 	/usr/local/go/src/runtime/debug/stack.go:24 +0x9f
-github.com/gxlog/gxlog/logger.(*Logger).Log(0xc000128000, 0x1, 0x6, 0xc000141d78, 0x1, 0x1)
+github.com/fufuok/gxlog/logger.(*Logger).Log(0xc000128000, 0x1, 0x6, 0xc000141d78, 0x1, 0x1)
 	/mnt/f/Go/gxlog/logger/logger.go:149 +0xcc
-github.com/gxlog/gxlog/logger.(*Logger).Fatal(...)
+github.com/fufuok/gxlog/logger.(*Logger).Fatal(...)
 	/mnt/f/Go/gxlog/logger/logger.go:106
 main.testTextFormatter()
 	/mnt/f/Go/gxlog/_examples/default/default.go:46 +0x8a5
@@ -29,9 +29,9 @@ main.main()
 goroutine 1 [running]:
 runtime/debug.Stack(0x0, 0x503220, 0x2)
 	/usr/local/go/src/runtime/debug/stack.go:24 +0x9f
-github.com/gxlog/gxlog/logger.(*Logger).Logf(0xc000128000, 0x1, 0x6, 0xc0000144d0, 0x5, 0xc000141d68, 0x1, 0x1)
+github.com/fufuok/gxlog/logger.(*Logger).Logf(0xc000128000, 0x1, 0x6, 0xc0000144d0, 0x5, 0xc000141d68, 0x1, 0x1)
 	/mnt/f/Go/gxlog/logger/logger.go:168 +0x153
-github.com/gxlog/gxlog/logger.(*Logger).Fatalf(...)
+github.com/fufuok/gxlog/logger.(*Logger).Fatalf(...)
 	/mnt/f/Go/gxlog/logger/logger.go:111
 main.testTextFormatter()
 	/mnt/f/Go/gxlog/_examples/default/default.go:47 +0x925

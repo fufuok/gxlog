@@ -1,7 +1,7 @@
 package logger
 
 import (
-	"github.com/gxlog/gxlog/iface"
+	"github.com/fufuok/gxlog/iface"
 )
 
 // And returns a function that is the logic AND of all the filters.

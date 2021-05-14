@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/gxlog/gxlog/iface"
-	"github.com/gxlog/gxlog/writer"
+	"github.com/fufuok/gxlog/iface"
+	"github.com/fufuok/gxlog/writer"
 )
 
 // A Writer implements the interface iface.Writer.

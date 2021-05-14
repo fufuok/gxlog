@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/gxlog/gxlog"
-	"github.com/gxlog/gxlog/formatter/json"
-	"github.com/gxlog/gxlog/formatter/text"
-	"github.com/gxlog/gxlog/iface"
-	"github.com/gxlog/gxlog/logger"
+	"github.com/fufuok/gxlog"
+	"github.com/fufuok/gxlog/formatter/json"
+	"github.com/fufuok/gxlog/formatter/text"
+	"github.com/fufuok/gxlog/iface"
+	"github.com/fufuok/gxlog/logger"
 )
 
 var log = gxlog.Logger()
@@ -66,9 +66,9 @@ func testTextFormatter() {
 // goroutine 1 [running]:
 // runtime/debug.Stack(0xc000136000, 0x1, 0x6)
 //	C:/Go/src/runtime/debug/stack.go:24 +0xa5
-// github.com/gxlog/gxlog/logger.(*Logger).Log(0xc000136000, 0x1, 0x6, 0xc00010fd68, 0x1, 0x1)
+// github.com/fufuok/gxlog/logger.(*Logger).Log(0xc000136000, 0x1, 0x6, 0xc00010fd68, 0x1, 0x1)
 //	F:/Go/gxlog/logger/logger.go:149 +0xd2
-// github.com/gxlog/gxlog/logger.(*Logger).Fatal(...)
+// github.com/fufuok/gxlog/logger.(*Logger).Fatal(...)
 //	F:/Go/gxlog/logger/logger.go:106
 // main.testTextFormatter()
 //	F:/Go/gxlog/_examples/default/default.go:46 +0x8af
@@ -78,9 +78,9 @@ func testTextFormatter() {
 // goroutine 1 [running]:
 // runtime/debug.Stack(0x0, 0xae056e, 0x2)
 //	C:/Go/src/runtime/debug/stack.go:24 +0xa5
-// github.com/gxlog/gxlog/logger.(*Logger).Logf(0xc000136000, 0x1, 0x6, 0xc00000a9a0, 0x5, 0xc00010fd58, 0x1, 0x1)
+// github.com/fufuok/gxlog/logger.(*Logger).Logf(0xc000136000, 0x1, 0x6, 0xc00000a9a0, 0x5, 0xc00010fd58, 0x1, 0x1)
 //	F:/Go/gxlog/logger/logger.go:168 +0x165
-// github.com/gxlog/gxlog/logger.(*Logger).Fatalf(...)
+// github.com/fufuok/gxlog/logger.(*Logger).Fatalf(...)
 //	F:/Go/gxlog/logger/logger.go:111
 // main.testTextFormatter()
 //	F:/Go/gxlog/_examples/default/default.go:47 +0x92e

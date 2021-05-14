@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/gxlog/gxlog/formatter"
-	"github.com/gxlog/gxlog/iface"
-	"github.com/gxlog/gxlog/writer"
+	"github.com/fufuok/gxlog/formatter"
+	"github.com/fufuok/gxlog/iface"
+	"github.com/fufuok/gxlog/writer"
 )
 
 // The Slot defines the slot type of Logger.

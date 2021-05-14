@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/gxlog/gxlog/iface"
+	"github.com/fufuok/gxlog/iface"
 )
 
 const mapInitCap = 256

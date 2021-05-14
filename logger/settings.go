@@ -1,7 +1,7 @@
 package logger
 
 import (
-	"github.com/gxlog/gxlog/iface"
+	"github.com/fufuok/gxlog/iface"
 )
 
 // Config returns the Config of the Logger.

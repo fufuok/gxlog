@@ -4,8 +4,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/gxlog/gxlog"
-	"github.com/gxlog/gxlog/logger"
+	"github.com/fufuok/gxlog"
+	"github.com/fufuok/gxlog/logger"
 )
 
 // gxlog.Logger returns the default Logger.

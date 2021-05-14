@@ -11,8 +11,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/gxlog/gxlog/iface"
-	"github.com/gxlog/gxlog/writer/socket/internal/socket"
+	"github.com/fufuok/gxlog/iface"
+	"github.com/fufuok/gxlog/writer/socket/internal/socket"
 )
 
 // A Writer implements the interface iface.Writer.

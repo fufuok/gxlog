@@ -11,7 +11,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/gxlog/gxlog/iface"
+	"github.com/fufuok/gxlog/iface"
 )
 
 // A Writer implements the interface iface.Writer.

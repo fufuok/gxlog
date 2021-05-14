@@ -5,15 +5,15 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/gxlog/gxlog"
-	"github.com/gxlog/gxlog/formatter/text"
-	"github.com/gxlog/gxlog/iface"
-	"github.com/gxlog/gxlog/logger"
-	"github.com/gxlog/gxlog/writer"
-	"github.com/gxlog/gxlog/writer/file"
-	"github.com/gxlog/gxlog/writer/socket/tcp"
-	"github.com/gxlog/gxlog/writer/socket/unix"
-	"github.com/gxlog/gxlog/writer/syslog"
+	"github.com/fufuok/gxlog"
+	"github.com/fufuok/gxlog/formatter/text"
+	"github.com/fufuok/gxlog/iface"
+	"github.com/fufuok/gxlog/logger"
+	"github.com/fufuok/gxlog/writer"
+	"github.com/fufuok/gxlog/writer/file"
+	"github.com/fufuok/gxlog/writer/socket/tcp"
+	"github.com/fufuok/gxlog/writer/socket/unix"
+	"github.com/fufuok/gxlog/writer/syslog"
 )
 
 // gxlog.Logger returns the default Logger.

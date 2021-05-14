@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gxlog/gxlog/formatter/text"
-	"github.com/gxlog/gxlog/iface"
+	"github.com/fufuok/gxlog/formatter/text"
+	"github.com/fufuok/gxlog/iface"
 )
 
 const (
@@ -17,9 +17,9 @@ const (
 	tmplTime        = "07:12:07"
 	tmplDecimal     = "235605270"
 	tmplLevel       = iface.Info
-	tmplFile        = "/home/test/data/src/go/workspace/src/github.com/gxlog/gxlog/logger.go"
+	tmplFile        = "/home/test/data/src/go/workspace/src/github.com/fufuok/gxlog/logger.go"
 	tmplLine        = 64
-	tmplPkg         = "github.com/gxlog/gxlog"
+	tmplPkg         = "github.com/fufuok/gxlog"
 	tmplFunc        = "Test"
 	tmplMsg         = "testing"
 	tmplPrefix      = "**** "

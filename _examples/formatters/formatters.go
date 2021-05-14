@@ -1,12 +1,12 @@
 package main
 
 import (
-	"github.com/gxlog/gxlog"
-	"github.com/gxlog/gxlog/formatter"
-	"github.com/gxlog/gxlog/formatter/json"
-	"github.com/gxlog/gxlog/formatter/text"
-	"github.com/gxlog/gxlog/iface"
-	"github.com/gxlog/gxlog/logger"
+	"github.com/fufuok/gxlog"
+	"github.com/fufuok/gxlog/formatter"
+	"github.com/fufuok/gxlog/formatter/json"
+	"github.com/fufuok/gxlog/formatter/text"
+	"github.com/fufuok/gxlog/iface"
+	"github.com/fufuok/gxlog/logger"
 )
 
 var log = gxlog.Logger()

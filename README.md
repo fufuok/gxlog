@@ -1,4 +1,6 @@
-# forked from [gxlog/gxlog](https://github.com/gxlog/gxlog)
+# gxlog
+
+*forked from gxlog/gxlog*
 
 ## 改动
 
@@ -12,19 +14,9 @@
 
 ## 使用
 
-1. `go.mod`
-
-   ```
-   module ff.my.project
-   
-   go 1.16
-   
-   require github.com/gxlog/gxlog v0.7.0
-   
-   replace github.com/gxlog/gxlog v0.7.0 => github.com/fufuok/gxlog v1.0.0
-   ```
-
-2. `go mod tidy`
+```go
+go get github.com/fufuok/gxlog
+```
 
 ## 示例
 

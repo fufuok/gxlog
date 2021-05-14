@@ -4,8 +4,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/gxlog/gxlog/iface"
-	"github.com/gxlog/gxlog/writer"
+	"github.com/fufuok/gxlog/iface"
+	"github.com/fufuok/gxlog/writer"
 )
 
 // The Facility defines the facility type of syslog.

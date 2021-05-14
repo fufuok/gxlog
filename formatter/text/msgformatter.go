@@ -3,7 +3,7 @@ package text
 import (
 	"fmt"
 
-	"github.com/gxlog/gxlog/iface"
+	"github.com/fufuok/gxlog/iface"
 )
 
 type msgFormatter struct {
