@@ -16,9 +16,6 @@ import (
 )
 
 const (
-	// 修改该参数!!!
-	Debug = true
-
 	// 文件日志
 	LogDir      = "."
 	ProjectName = "app-ff"
@@ -28,11 +25,12 @@ const (
 	LogLimitNum  = 3
 
 	// 日志级别: 1Trace 2Debug 3Info 4Warn 5Error(默认) 6Fatal 7Off
-	LogLevel     = 2
 	LogFileLevel = 4
 )
 
 var (
+	Debug     = false
+	LogLevel  = 4
 	Log       = gxlog.Logger()
 	LogLimit  *logger.Logger
 	LogPrefix *logger.Logger
@@ -65,9 +63,11 @@ func InitLogger() error {
 func LogConfig() error {
 	Log.SetSlotLevel(logger.Slot0, iface.Level(LogLevel))
 	Log.SetSlotFormatter(logger.Slot0, text.New(text.NewConfig()))
+	Log.SetSlotWriter(logger.Slot0, writer.Wrap(os.Stderr, nil))
 
 	if Debug {
 		// 测试环境只输出到控制台
+		Log.Unlink(logger.Slot1)
 		return nil
 	}
 
@@ -97,7 +97,7 @@ func LogCache(bs []byte) {
 	fmt.Println("___LOG_CACHE:", string(bs))
 }
 
-func main() {
+func testLog() {
 	Log.Debug("test DEBUG")
 	Log.Info("test INFO")
 	Log.Warn("test WARN")
@@ -109,6 +109,20 @@ func main() {
 		LogLimit.Infof(">>>test limit: %d", i)
 		time.Sleep(200 * time.Millisecond)
 	}
+}
+
+func main() {
+	testLog()
+
+	fmt.Println("~~~~~~~~~~~~~~~~debug.true, level.debug")
+	Debug = true
+	LogLevel = 2
+	_ = InitLogger()
+
+	testLog()
+
+
+	Log.Fatal("the end")
 }
 
 // Debug = true
